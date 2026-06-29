@@ -41,7 +41,8 @@ pip install -r requirements.txt
 python src/generate_data.py     # 1. (re)generate data/accidents.csv
 python src/train.py             # 2. compare models, save the best one
 python src/evaluate.py          # 3. write confusion matrix / ROC / PR / importance
-python src/predict.py           # 4. demo prediction on sample machines
+python src/graphs.py            # 4. write line graphs (risk curves)
+python src/predict.py           # 5. demo prediction on sample machines
 ```
 
 Score your own readings:
@@ -66,8 +67,16 @@ python src/predict.py --csv path/to/new_readings.csv --out scored.csv --threshol
    Class imbalance is handled with `class_weight="balanced"` / boosting.
 3. **`evaluate.py`** – produces confusion-matrix, ROC, precision–recall, and
    permutation-importance figures from the held-out test set.
-4. **`predict.py`** – loads the saved pipeline and scores new readings,
+4. **`graphs.py`** – generates **line graphs (risk curves)**: each sensor is
+   swept across its observed range while the others are held at their median,
+   and the model's predicted failure probability is drawn as a line. Also plots
+   the empirical failure rate vs operating-hours bins. Saved to
+   `reports/figures/risk_curve_*.png`, `risk_curves_combined.png`, and
+   `failure_rate_vs_operating_hours.png`.
+5. **`predict.py`** – loads the saved pipeline and scores new readings,
    emitting a `failure_probability` and a thresholded `predicted_failure`.
+
+![Risk curves](reports/figures/risk_curves_combined.png)
 
 ## Data schema
 
