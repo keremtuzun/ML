@@ -1,0 +1,36 @@
+{
+  "best_model": "gradient_boosting",
+  "feature_columns": [
+    "machine_quality",
+    "air_temperature_K",
+    "process_temperature_K",
+    "rotational_speed_rpm",
+    "torque_Nm",
+    "tool_wear_min",
+    "operating_hours",
+    "vibration_mm_s",
+    "pressure_bar"
+  ],
+  "cross_validation": {
+    "logistic_regression": {
+      "cv_roc_auc_mean": 0.7105331026395737,
+      "cv_roc_auc_std": 0.011564875962201578
+    },
+    "random_forest": {
+      "cv_roc_auc_mean": 0.955686804642004,
+      "cv_roc_auc_std": 0.0034668282439134362
+    },
+    "gradient_boosting": {
+      "cv_roc_auc_mean": 0.9584574091269185,
+      "cv_roc_auc_std": 0.0025261561048656096
+    }
+  },
+  "holdout_test": {
+    "roc_auc": 0.939088855161947,
+    "average_precision": 0.8076427575998144,
+    "f1": 0.7479224376731302
+  },
+  "n_train": 9600,
+  "n_test": 2400,
+  "train_failure_rate": 0.08822916666666666
+}

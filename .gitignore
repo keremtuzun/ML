@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Project artifacts that are reproducible from source
+# (kept small ones in-repo; uncomment to exclude regenerable outputs)
+# models/*.joblib
